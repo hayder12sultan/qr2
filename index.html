@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Angla Cafeteria – Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">Angla<span>.</span></div>
+                <div class="status">
+                    <span class="status-dot"></span> Open
+                </div>
+            </div>
+            <div class="header-content">
+                <h1>Angla Cafeteria</h1>
+                <p class="subtitle">Authentic Ethiopian Cuisine</p>
+                <div class="header-meta">
+                    <span>📍 Bole Road, Addis Ababa</span>
+                    <span>🕐 7:00 AM – 10:00 PM</span>
+                    <span>⭐ 4.5 (2.3k reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search dishes, drinks..." oninput="searchMenu()">
+        </div>
+
+        <!-- Category Filters -->
+        <div class="categories" id="categoryContainer">
+            <button class="cat-btn active" data-cat="all" onclick="filterCategory('all', this)">All</button>
+            <button class="cat-btn" data-cat="traditional" onclick="filterCategory('traditional', this)">Traditional</button>
+            <button class="cat-btn" data-cat="breakfast" onclick="filterCategory('breakfast', this)">Breakfast</button>
+            <button class="cat-btn" data-cat="drinks" onclick="filterCategory('drinks', this)">Drinks</button>
+            <button class="cat-btn" data-cat="snacks" onclick="filterCategory('snacks', this)">Snacks</button>
+            <button class="cat-btn" data-cat="desserts" onclick="filterCategory('desserts', this)">Desserts</button>
+            <button class="cat-btn" data-cat="vegetarian" onclick="filterCategory('vegetarian', this)">🌱 Veg</button>
+        </div>
+
+        <!-- Menu Items -->
+        <div id="menuContent">
+            <!-- Traditional -->
+            <div class="section active" data-section="traditional">
+                <h2 class="section-title">Traditional Dishes</h2>
+                
+                <div class="menu-item" data-name="Doro Wat" data-category="traditional" data-veg="false" data-spicy="true">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Doro Wat</div>
+                            <div class="item-desc">Spicy chicken stew with berbere sauce, served with injera and egg</div>
+                            <div class="badges">
+                                <span class="badge badge-spicy">🌶️ Spicy</span>
+                                <span class="badge badge-popular">Popular</span>
+                            </div>
+                        </div>
+                        <div class="item-price">350 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Kitfo" data-category="traditional" data-veg="false" data-spicy="true">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Kitfo</div>
+                            <div class="item-desc">Minced beef seasoned with mitmita and spiced butter</div>
+                            <div class="badges">
+                                <span class="badge badge-spicy">🌶️ Spicy</span>
+                            </div>
+                        </div>
+                        <div class="item-price">400 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Shiro Wat" data-category="traditional" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Shiro Wat</div>
+                            <div class="item-desc">Ground chickpea stew with spices, served with injera</div>
+                            <div class="badges">
+                                <span class="badge badge-veg">🌱 Veg</span>
+                            </div>
+                        </div>
+                        <div class="item-price">180 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Tibs" data-category="traditional" data-veg="false" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Tibs</div>
+                            <div class="item-desc">Sautéed beef with onions, tomatoes, and rosemary</div>
+                            <div class="badges">
+                                <span class="badge badge-popular">Popular</span>
+                            </div>
+                        </div>
+                        <div class="item-price">320 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Beyaynetu" data-category="traditional" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Beyaynetu</div>
+                            <div class="item-desc">Combination platter with various vegetarian dishes on injera</div>
+                            <div class="badges">
+                                <span class="badge badge-veg">🌱 Veg</span>
+                                <span class="badge badge-new">New</span>
+                            </div>
+                        </div>
+                        <div class="item-price">250 ETB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breakfast -->
+            <div class="section" data-section="breakfast">
+                <h2 class="section-title">Breakfast</h2>
+                
+                <div class="menu-item" data-name="Ful Medames" data-category="breakfast" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Ful Medames</div>
+                            <div class="item-desc">Fava beans with olive oil, cumin, and bread</div>
+                        </div>
+                        <div class="item-price">120 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Chechebsa" data-category="breakfast" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Chechebsa</div>
+                            <div class="item-desc">Shredded flatbread with spiced butter and berbere</div>
+                            <div class="badges">
+                                <span class="badge badge-popular">Popular</span>
+                            </div>
+                        </div>
+                        <div class="item-price">140 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Ethiopian Breakfast Combo" data-category="breakfast" data-veg="false" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Breakfast Combo</div>
+                            <div class="item-desc">Eggs, toast, fruit, and your choice of tea or coffee</div>
+                        </div>
+                        <div class="item-price">180 ETB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drinks -->
+            <div class="section" data-section="drinks">
+                <h2 class="section-title">Drinks</h2>
+                
+                <div class="menu-item" data-name="Traditional Coffee" data-category="drinks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Traditional Coffee (Buna)</div>
+                            <div class="item-desc">Freshly brewed Ethiopian coffee in jebena</div>
+                            <div class="badges">
+                                <span class="badge badge-popular">Popular</span>
+                            </div>
+                        </div>
+                        <div class="item-price">80 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Spiced Tea" data-category="drinks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Spiced Tea (Shai)</div>
+                            <div class="item-desc">Black tea with cinnamon and cardamom</div>
+                        </div>
+                        <div class="item-price">60 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Fresh Juice" data-category="drinks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Fresh Fruit Juice</div>
+                            <div class="item-desc">Mango, avocado, papaya, or mixed</div>
+                        </div>
+                        <div class="item-price">90 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Tej" data-category="drinks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Tej (Honey Wine)</div>
+                            <div class="item-desc">Traditional Ethiopian honey wine</div>
+                        </div>
+                        <div class="item-price">150 ETB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snacks -->
+            <div class="section" data-section="snacks">
+                <h2 class="section-title">Snacks & Sides</h2>
+                
+                <div class="menu-item" data-name="Sambusa" data-category="snacks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Sambusa</div>
+                            <div class="item-desc">Fried pastry with lentils or meat (3 pieces)</div>
+                        </div>
+                        <div class="item-price">80 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Injera" data-category="snacks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Extra Injera</div>
+                            <div class="item-desc">Traditional flatbread (2 pieces)</div>
+                        </div>
+                        <div class="item-price">30 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="French Fries" data-category="snacks" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">French Fries</div>
+                            <div class="item-desc">Crispy golden fries with ketchup</div>
+                            <div class="badges">
+                                <span class="badge badge-popular">Popular</span>
+                            </div>
+                        </div>
+                        <div class="item-price">90 ETB</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="section" data-section="desserts">
+                <h2 class="section-title">Desserts</h2>
+                
+                <div class="menu-item" data-name="Baklava" data-category="desserts" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Baklava</div>
+                            <div class="item-desc">Sweet pastry with nuts and honey</div>
+                        </div>
+                        <div class="item-price">100 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Fresh Fruit Platter" data-category="desserts" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Fresh Fruit Platter</div>
+                            <div class="item-desc">Seasonal fruits: papaya, mango, banana</div>
+                        </div>
+                        <div class="item-price">120 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Chocolate Cake" data-category="desserts" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">Chocolate Cake</div>
+                            <div class="item-desc">Rich chocolate layer cake</div>
+                        </div>
+                        <div class="item-price">110 ETB</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Chocolate Cake" data-category="desserts" data-veg="true" data-spicy="false">
+                    <div class="item-top">
+                        <div class="item-info">
+                            <div class="item-name">white Cake</div>
+                            <div class="item-desc">this is the white cake</div>
+                        </div>
+                        <div class="item-price">150 ETB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="map-header">
+                <h3>Find Us</h3>
+                <p>Birchiko Addis Sefer</p>
+            </div>
+            <div class="map-container">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.116788461554!2d38.70086327506632!3d9.056983191005413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b890033d401bf%3A0x60b8423c898bca75!2sBirchiko%2040%2F60%20condominium%20(Block-8)!5e1!3m2!1sen!2set!4v1787251605822!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Angla Cafeteria</h3>
+            <div class="footer-grid">
+                <div class="footer-item">
+                    <h4>Location</h4>
+                    <p>Aratkillo Square, Addis Ababa</p>
+                </div>
+                <div class="footer-item">
+                    <h4>Contact</h4>
+                    <p>+251902757912</p>
+                </div>
+                <div class="footer-item">
+                    <h4>Hours</h4>
+                    <p>Mon–Sun: 7AM – 10PM</p>
+                </div>
+            </div>
+            <div class="payment-methods">
+                <span class="pay-badge">Cash</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
