@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Angla Cafeteria - Authentic Ethiopian Cuisine in Addis Ababa">
+    <meta name="keywords" content="Ethiopian food, restaurant menu, Addis Ababa, Angla Cafeteria">
+    <meta property="og:title" content="Angla Cafeteria – Menu">
+    <meta property="og:description" content="Browse authentic Ethiopian cuisine at Angla Cafeteria">
     <title>Angla Cafeteria – Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <div class="container">
@@ -31,20 +34,22 @@
 
         <!-- Search -->
         <div class="search-wrapper">
+            <label for="searchInput" class="search-label">Search menu</label>
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-bar" id="searchInput" placeholder="Search dishes, drinks..." oninput="searchMenu()">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search dishes, drinks...">
         </div>
 
         <!-- Category Filters -->
-        <div class="categories" id="categoryContainer">
-            <button class="cat-btn active" data-cat="all" onclick="filterCategory('all', this)">All</button>
-            <button class="cat-btn" data-cat="traditional" onclick="filterCategory('traditional', this)">Traditional</button>
-            <button class="cat-btn" data-cat="breakfast" onclick="filterCategory('breakfast', this)">Breakfast</button>
-            <button class="cat-btn" data-cat="drinks" onclick="filterCategory('drinks', this)">Drinks</button>
-            <button class="cat-btn" data-cat="snacks" onclick="filterCategory('snacks', this)">Snacks</button>
-            <button class="cat-btn" data-cat="desserts" onclick="filterCategory('desserts', this)">Desserts</button>
-            <button class="cat-btn" data-cat="vegetarian" onclick="filterCategory('vegetarian', this)">🌱 Veg</button>
-        </div>
+        <fieldset class="categories" id="categoryContainer">
+            <legend class="sr-only">Filter by category</legend>
+            <button class="cat-btn active" data-cat="all">All</button>
+            <button class="cat-btn" data-cat="traditional">Traditional</button>
+            <button class="cat-btn" data-cat="breakfast">Breakfast</button>
+            <button class="cat-btn" data-cat="drinks">Drinks</button>
+            <button class="cat-btn" data-cat="snacks">Snacks</button>
+            <button class="cat-btn" data-cat="desserts">Desserts</button>
+            <button class="cat-btn" data-cat="vegetarian">🌱 Veg</button>
+        </fieldset>
 
         <!-- Menu Items -->
         <div id="menuContent">
@@ -278,11 +283,11 @@
                     </div>
                 </div>
 
-                <div class="menu-item" data-name="Chocolate Cake" data-category="desserts" data-veg="true" data-spicy="false">
+                <div class="menu-item" data-name="White Cake" data-category="desserts" data-veg="true" data-spicy="false">
                     <div class="item-top">
                         <div class="item-info">
-                            <div class="item-name">white Cake</div>
-                            <div class="item-desc">this is the white cake</div>
+                            <div class="item-name">White Cake</div>
+                            <div class="item-desc">Light and fluffy white layer cake</div>
                         </div>
                         <div class="item-price">150 ETB</div>
                     </div>
@@ -297,7 +302,7 @@
                 <p>Birchiko Addis Sefer</p>
             </div>
             <div class="map-container">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.116788461554!2d38.70086327506632!3d9.056983191005413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b890033d401bf%3A0x60b8423c898bca75!2sBirchiko%2040%2F60%20condominium%20(Block-8)!5e1!3m2!1sen!2set!4v1787251605822!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.116788461554!2d38.70086327506632!3d9.056983191005413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8f3c5d5d5d5d%3A0x5d5d5d5d5d5d5d5d!2sAngla%20Cafeteria!5e0!3m2!1sen!2set!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
 

@@ -13,10 +13,10 @@ function applyFilters() {
     items.forEach((item) => {
       const itemCategory = item.dataset.category;
       const isVeg = item.dataset.veg === "true";
-      const itemName = item.dataset.name.toLowerCase();
-      const itemDesc = item
-        .querySelector(".item-desc")
-        .textContent.toLowerCase();
+      const itemName = item.dataset.name?.toLowerCase() || "";
+      const itemDescElement = item.querySelector(".item-desc");
+      const itemDesc = itemDescElement?.textContent.toLowerCase() || "";
+      
       const matchesCategory =
         activeCategory === "all" ||
         itemCategory === activeCategory ||
@@ -46,9 +46,9 @@ function applyFilters() {
       noResults.id = "noResults";
       noResults.className = "no-results";
       noResults.innerHTML = `
-                        <h3>No items found</h3>
-                        <p>Try adjusting your search or filter</p>
-                    `;
+        <h3>No items found</h3>
+        <p>Try adjusting your search or filter</p>
+      `;
       document.getElementById("menuContent").appendChild(noResults);
     }
   } else if (noResults) {
@@ -68,10 +68,9 @@ function filterCategory(category, btn) {
 }
 
 function searchMenu() {
-  searchTerm = document
-    .getElementById("searchInput")
-    .value.toLowerCase()
-    .trim();
+  const searchInput = document.getElementById("searchInput");
+  searchTerm = searchInput.value.toLowerCase().trim();
+  
   if (searchTerm) {
     activeCategory = "all";
     document
@@ -82,14 +81,26 @@ function searchMenu() {
   applyFilters();
 }
 
-// Smooth scroll for categories on mobile
-document.querySelectorAll(".cat-btn").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    document
-      .getElementById("menuContent")
-      .scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
+// Initialize event listeners on DOM load
+document.addEventListener("DOMContentLoaded", function () {
+  // Search input listener
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", searchMenu);
+  }
 
-// Initial apply
-applyFilters();
+  // Category button listeners
+  document.querySelectorAll(".cat-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const category = this.dataset.cat;
+      filterCategory(category, this);
+      // Smooth scroll to menu content
+      document
+        .getElementById("menuContent")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Initial apply
+  applyFilters();
+});
